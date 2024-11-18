@@ -1,0 +1,41 @@
+.active{
+    background-color: #B2C9D2;
+    font-size: xx-large;
+    font-weight: bolder;
+    border: 1px solid black;
+}
+.content-docker{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 17px;
+    width: 85%;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+.item img{
+    width: 250px;
+    height: 150px;
+}
+.left{
+    width: 250px;
+}
+.right{
+    width: 500px;
+    height: 150px;
+}
+.title{
+    font-size: x-large;
+}
+.content{
+    margin-top: 10px;
+    font-size: medium;
+    color: gray;
+}

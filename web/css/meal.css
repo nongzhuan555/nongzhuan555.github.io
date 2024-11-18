@@ -1,0 +1,77 @@
+.active{
+    background-color: #B2C9D2;
+    font-size: xx-large;
+    font-weight: bolder;
+    border: 1px solid black;
+}
+
+.card {
+    padding: 10px;
+    max-width: 260px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+  }
+  
+  .content {
+    margin-top: 1rem;
+  }
+  
+  .content .header {
+    margin-top: 0.5rem;
+  }
+  
+  .image {
+    width: 100%;
+    height: 150px;
+    margin-left: 8px;
+    padding: 7px;
+  }
+  
+  .tag {
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.425);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .date {
+    display: flex;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    align-items: center;
+    margin: 2px;
+  }
+  
+  .title {
+    text-align: center;
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.35rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+    padding-top: 14px;
+  }
+  
+  .description {
+    line-height: 1.375;
+  }
+  .content-docker{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+  .meal-docker{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .card{
+    margin: 13px 30px;
+  }
+  .card img{
+    width: 230px;
+    height: 150px;
+  }
