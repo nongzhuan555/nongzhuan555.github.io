@@ -1,0 +1,338 @@
+:root {
+    --primary-green: #418D42;
+    --secondary-gold: rgba(255, 203, 51, 1);
+    --background: #F5F9F3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    overflow: hidden;
+    -webkit-touch-callout: none;
+}
+
+#canvasBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+.app-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-green) 30%, var(--secondary-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.nong {
+    font-size: 5rem;
+}
+
+.yu {
+    font-size: 5rem;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 0 0 20px rgba(65,141,66,0.3); }
+    to { text-shadow: 0 0 30px rgba(255,203,51,0.3); }
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 36px;
+    border-radius: 30px;
+    background: var(--primary-green);
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 30px 0;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(65,141,66,0.3);
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    background: #367C37;
+}
+
+.features {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-green);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-icon:hover {
+    transform: scale(1.15) translateY(-5px);
+    color: var(--secondary-gold);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.scroll-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.scroll-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.phone-container {
+    display: flex;
+    padding: 60px 20px;
+    gap: 70px;
+    width: 100%;
+    cursor: grab;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.phone-container.grabbing {
+    cursor: grabbing;
+}
+
+.phone-mockup {
+    flex: 0 0 auto;
+    width: 260px;
+    height: 520px;
+    background: #fff;
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: 0 12px 30px rgba(65,141,66,0.15);
+    transition: opacity 0.6s, transform 0.6s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.phone-mockup.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+}
+
+.phone-mockup h3 {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-green);
+    white-space: nowrap;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        /* 新增移动端适配样式 */
+        @media (max-width: 768px) {
+    .app-title {
+        font-size: 2rem !important;
+        line-height: 1.3;
+        padding: 0 15px;
+    }
+
+    .nong, .yu {
+        font-size: 2.5rem !important;
+    }
+
+    .download-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        margin: 20px 0;
+    }
+
+    .features {
+        gap: 20px;
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* 手机模型适配 */
+    .phone-mockup {
+        width: 80vw;
+        height: calc(80vw * 2);
+        margin: 0 10px;
+    }
+
+    .phone-container {
+        gap: 30px;
+        padding: 40px 10px;
+    }
+
+    .phone-mockup h3 {
+        font-size: 0.9rem;
+        top: -25px;
+    }
+
+}
+
+/* 新增横屏适配 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .content {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+
+    .phone-mockup {
+        width: 60vh;
+        height: calc(60vh * 2);
+    }
+}
+
+/* 触摸优化 */
+.phone-container {
+    -webkit-overflow-scrolling: touch;
+}
+
+.download-btn {
+    min-width: 160px; /* 保持按钮可点击区域 */
+}
+.copy-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.copy-toast.show {
+    opacity: 1;
+}
+
+/* 添加可复制元素的交互效果 */
+[data-copy] {
+    cursor: copy;
+    transition: transform 0.2s;
+}
+
+[data-copy]:active {
+    transform: scale(0.95);
+}
+
+ /* 弹窗样式 */
+ .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlide 0.3s ease-out;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+}
+
+/* 功能图标样式调整 */
+.feature-icon.text-image {
+    background: url('text-calendar.png') center/cover;
+    width: 80px;
+    height: 80px;
+}

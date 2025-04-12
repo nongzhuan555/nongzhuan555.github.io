@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川农校园通 - 智慧校园服务平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <canvas id="canvasBg"></canvas>
+    
+    <div class="content">
+       <h1 class="app-title">
+            <span>在川<span class="nong">农</span><span class="yu">屿</span>见你</span>
+        </h1>
+        <p style="color: var(--primary-green); margin-bottom: 1rem;">农屿APP 川农智慧助手</p>
+        
+        <a href="#" class="download-btn">
+            <i class="fas fa-download" style="margin-right: 10px;"></i>
+            立即下载
+        </a>
+
+        <div class="features">
+            <div class="feature-icon" onclick="showModal()"><i class="fa fa-book"></i></div>
+            <div class="feature-icon" data-copy="327303003"><i class="fas fa-comments"></i></div>
+            <div class="feature-icon"><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+
+    <section class="scroll-section">
+        <div class="phone-container">
+            <div class="phone-mockup">
+                <h3>课表查询</h3>
+                <div class="phone-screen"><img src="./img/table.jpg" alt="课表界面"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>课程学分</h3>
+                <div class="phone-screen"><img src="./img/credit.jpg" alt="课程学分"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>成绩总览</h3>
+                <div class="phone-screen"><img src="./img/course-grade.jpg" alt="成绩总览"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>专业排名</h3>
+                <div class="phone-screen"><img src="./img/total-grade.jpg" alt="专业排名"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>窗口评分</h3>
+                <div class="phone-screen"><img src="./img/canteen-comment.jpg" alt="窗口评分"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>课程评分</h3>
+                <div class="phone-screen"><img src="./img/course-commet.jpg" alt="课程评分"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>窗口帖子</h3>
+                <div class="phone-screen"><img src="./img/canteen-page.jpg" alt="窗口帖子"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>竞赛信息</h3>
+                <div class="phone-screen"><img src="./img/competition.jpg" alt="竞赛信息"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>入口导航</h3>
+                <div class="phone-screen"><img src="./img/index.jpg" alt="竞赛信息"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>教学通知</h3>
+                <div class="phone-screen"><img src="./img/teach-inform.jpg" alt="教学通知"></div>
+            </div>
+            <div class="phone-mockup">
+                <h3>帖子详情</h3>
+                <div class="phone-screen"><img src="./img/post.jpg" alt="帖子详情"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="copy-toast">QQ群号已复制到剪贴板</div>
+
+    <!-- 弹窗结构 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>课程日历</h2>
+            <img src="calendar-detail.jpg" alt="课程日历详情" style="width:100%; margin-top:20px;">
+            <p>特色功能：</p>
+            <ul>
+                <li>同步教务系统课表</li>
+                <li>考试时间提醒</li>
+                <li>作业DDL提醒</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
