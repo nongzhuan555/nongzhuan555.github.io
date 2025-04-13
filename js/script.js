@@ -246,22 +246,6 @@ modalSelect.addEventListener('touchstart', function(e) {
 });
 
 modalSelect.addEventListener('touchmove', function(e) {
-    // 计算滚动方向
-    const deltaY = this.startY - e.touches[0].clientY;
-    
-    // 顶部继续下拉关闭
-    if (this.scrollTop <= 0 && deltaY < 0) {
-        closeModal();
-        return;
-    }
-    
-    // 底部继续上拉关闭
-    const isBottom = this.scrollHeight - this.scrollTop === this.clientHeight;
-    if (isBottom && deltaY > 0) {
-        closeModal();
-        return;
-    }
-    
     // 阻止默认行为但允许滚动
     e.stopPropagation();
 });
@@ -275,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new ScrollHandler();
     initCopy()
 
-    document.addEventListener('contextmenu', e => e.preventDefault());
+    // document.addEventListener('contextmenu', e => e.preventDefault());
     document.onselectstart = () => false;
 
     window.addEventListener('wheel', (e) => {
