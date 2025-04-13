@@ -17,15 +17,15 @@
         </h1>
         <p style="color: var(--primary-green); margin-bottom: 1rem;">农屿APP 川农智慧助手</p>
         
-        <a href="#" class="download-btn">
+        <a href="https://www.pgyer.com/1yq4j5wX" class="download-btn">
             <i class="fas fa-download" style="margin-right: 10px;"></i>
             立即下载
         </a>
 
         <div class="features">
-            <div class="feature-icon" onclick="showModal()"><i class="fa fa-book"></i></div>
+            <div class="feature-icon" onclick="showModal('modal')"><i class="fas fa-book"></i></div>
             <div class="feature-icon" data-copy="327303003"><i class="fas fa-comments"></i></div>
-            <div class="feature-icon"><i class="fas fa-star"></i></div>
+            <div class="feature-icon" onclick="showModal('explain')"><i class="fas fa-star"></i></div>
         </div>
     </div>
 
@@ -84,16 +84,130 @@
     <div class="modal-overlay" id="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h2>课程日历</h2>
-            <img src="calendar-detail.jpg" alt="课程日历详情" style="width:100%; margin-top:20px;">
-            <p>特色功能：</p>
-            <ul>
-                <li>同步教务系统课表</li>
-                <li>考试时间提醒</li>
-                <li>作业DDL提醒</li>
-            </ul>
+
+            <header>
+                <h1 style="margin-top: 4rem;">
+                    <i class="icon fas fa-leaf"></i>
+                    为什么要开发农屿APP？
+                    <br/>
+                    <small style="font-size: 0.6em; color: #888;">开发者碎碎念的独白</small>
+                </h1>
+            </header>
+        
+            <section id="background">
+                <h2><i class="icon fas fa-comment-dots"></i> 开发背景</h2>
+                <p class="quote">"一个APP被开发的原因大概是因为总有人需要它吧"</p>
+                <p>初入川农时，<span class="highlight">"超级课程表"</span>的使用体验让人失望：</p>
+                <ul>
+                    <li><i class="fas fa-ad"></i> 广告充斥每个角落</li>
+                    <li><i class="fas fa-microchip"></i> 冗余功能占据内存</li>
+                    <li><i class="fas fa-paint-brush"></i> 界面设计陈旧过时</li>
+                </ul>
+                <blockquote class="quote">
+                    "既然市面没有好用的，作为软件开发者<br>
+                    何不打造属于川农人的<span class="highlight">数字绿洲</span>？"
+                </blockquote>
+            </section>
+        
+            <section id="journey">
+                <h2><i class="icon fas fa-brain"></i> 心路历程</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-university fa-2x"></i>
+                        <h3>服务碎片化</h3>
+                        <p>教务网、QQ频道、二手群...<br>信息散落在各处</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb fa-2x"></i>
+                        <h3>灵感迸发</h3>
+                        <p>受复旦"旦夕"启发<br>打造川农专属平台</p>
+                    </div>
+                </div>
+            </section>
+        
+            <section id="vision">
+                <h2><i class="icon fas fa-gem"></i> 核心价值</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-ban fa-2x"></i>
+                        <h3>零广告干扰</h3>
+                        <p>纯净无打扰的校园空间</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                        <h3>安全社区</h3>
+                        <p>严格审核的实名制环境</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-puzzle-piece fa-2x"></i>
+                        <h3>服务聚合</h3>
+                        <p>一站式校园服务平台</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
+
+    <div class="explain-popup" id="explain">
+        <div class="explain-modal">
+          <!-- 关闭按钮 -->
+          <span class="explain-close" onclick="closeModal()">&times;</span>
+          
+          <!-- 弹窗内容 -->
+          <div class="explain-content">
+            <!-- 标题区 -->
+            <header class="explain-header">
+              <i class="fas fa-info-circle"></i>
+              <h2>农屿APP使用说明</h2>
+              <p class="explain-subtitle">川农智慧助手</p>
+            </header>
+      
+            <!-- 说明内容区块 -->
+            <div class="explain-body">
+              <!-- 功能列表 -->
+              <section class="explain-section">
+                <h3><i class="fas fa-check-circle"></i> 核心功能</h3>
+                <ul class="explain-list">
+                  <li><i class="fas fa-calendar-alt"></i> 智能课程表同步</li>
+                  <li><i class="fas fa-comments"></i> 实时校园论坛</li>
+                  <li><i class="fas fa-graduation-cap"></i> 校园信息一键查询</li>
+                </ul>
+              </section>
+      
+              <!-- 使用提示 -->
+              <section class="explain-section tips">
+                <h3><i class="fas fa-lightbulb"></i> 使用小贴士</h3>
+                <div class="explain-card">
+                  <i class="fas fa-fingerprint"></i>
+                  <p>使用<span class="highlight">教务账号</span>登录，同步教务数据</p>
+                </div>
+                <div class="explain-card">
+                  <i class="fas fa-bell"></i>
+                  <p>唯一设备登录，更换设备时需<span class="highlight">在上台设备中退出登录</span></p>
+                </div>
+              </section>
+      
+              <!-- 注意事项 -->
+              <section class="explain-section notice">
+                <h3><i class="fas fa-exclamation-triangle"></i> 注意事项</h3>
+                <div class="explain-notice">
+                  <p>请勿在论坛发布违反国家法律法规的内容</p>
+                </div>
+              </section>
+            </div>
+      
+            <!-- 底部操作区 -->
+            <footer class="explain-footer">
+              <button class="explain-button" onclick="closeModal()">
+                <i class="fas fa-check"></i>
+                我已了解
+              </button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+    <div class="explain-popup"></div>
     <script src="./js/script.js"></script>
 </body>
 </html>

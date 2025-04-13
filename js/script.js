@@ -177,23 +177,98 @@ class ScrollAnimator {
     }
 }
 
- // 弹窗控制函数
- function showModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'flex';
+ // 修改弹窗控制函数
+let isModalOpen = false;
+let modalContent = modal.querySelector('.modal-content');
+let modalExplain = explain.querySelector('.explain-modal');
+let modalSelect = null
+let Select = null
+function showModal(type) {
+    if(type === 'modal'){
+        modalSelect = modalContent
+    }else if(type === 'explain'){
+        modalSelect = modalExplain
+    }
+    Select = type
+    addModalEventListener()
+    // 锁定背景滚动
+    document.body.classList.add('modal-open');
+    isModalOpen = true;
     
-    // 点击背景关闭
-    modal.onclick = function(e) {
-        if(e.target === modal) closeModal();
+    // 添加事件监听
+    document.addEventListener('wheel', preventBgScroll, { passive: false });
+    document.addEventListener('touchmove', preventBgScroll, { passive: false });
+    
+    // 显示弹窗
+    if(type === 'modal'){
+        modal.style.display = 'flex';
+    }else if(type === 'explain'){
+        explain.style.display = 'flex';
     }
 }
 
 function closeModal() {
-    document.querySelectorAll('.modal-overlay').forEach(modal => {
+    // 解除背景锁定
+    document.body.classList.remove('modal-open');
+    isModalOpen = false;
+    
+    // 移除事件监听
+    document.removeEventListener('wheel', preventBgScroll);
+    document.removeEventListener('touchmove', preventBgScroll);
+    
+    // 隐藏弹窗
+    if(Select === 'modal'){
         modal.style.display = 'none';
-    });
+    }else if(Select === 'explain'){
+        explain.style.display = 'none';
+    }
 }
 
+// 阻止背景滚动函数
+function preventBgScroll(e) {
+    if (isModalOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+}
+
+function addModalEventListener(){
+// 弹窗内容滚动处理
+modalSelect.addEventListener('wheel', function(e) {
+    // 允许弹窗内容滚动
+    e.stopPropagation();
+});
+
+modalSelect.addEventListener('touchstart', function(e) {
+    // 记录触摸起始位置
+    this.startY = e.touches[0].clientY;
+});
+
+modalSelect.addEventListener('touchmove', function(e) {
+    // 计算滚动方向
+    const deltaY = this.startY - e.touches[0].clientY;
+    
+    // 顶部继续下拉关闭
+    if (this.scrollTop <= 0 && deltaY < 0) {
+        closeModal();
+        return;
+    }
+    
+    // 底部继续上拉关闭
+    const isBottom = this.scrollHeight - this.scrollTop === this.clientHeight;
+    if (isBottom && deltaY > 0) {
+        closeModal();
+        return;
+    }
+    
+    // 阻止默认行为但允许滚动
+    e.stopPropagation();
+});
+}
+
+
+  
 document.addEventListener('DOMContentLoaded', () => {
     new CanvasBackground();
     new ScrollAnimator();
